@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
+import Login from './Login';
 
 export default class Home extends Component {
   render() {
@@ -7,7 +8,8 @@ export default class Home extends Component {
       <div className="Home">
         <div className="lander">
           <h1>Doctor Patient Portal</h1>
-          <p>Welcome!</p>
+            <p>Welcome!</p>
+	    <Login />
         </div>
       </div>
     );

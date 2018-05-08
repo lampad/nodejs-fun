@@ -1,0 +1,40 @@
+{
+  "person": [
+    {
+      "id": "1",
+      "firstName": "Billy Bob",
+      "lastName": "Thornton",
+      "passwordHash": "$2y$10$XOLk8Ym35g275z47uzm2d.L3OidSlzRI1X7e2lHd1ONxWUGtWZmfi",
+      "role": "patient",
+      "email": "billybobthornton@gmail.com"
+    },
+    {
+      "id": "2",
+      "firstName": "James",
+      "lastName": "Dean",
+      "passwordHash": "$2y$10$14SBOwzUgWhyXkGaPfH9RO1uQ57NJBpmKNJ25.pR.YVGebH8nrFxa",
+      "role": "doctor",
+      "email": "jdean@doc.us"
+    },
+    {
+      "id": "3",
+      "firstName": "Mickey",
+      "lastName": "Mouse",
+      "passwordHash": "$2y$10$wcYTIC5hmBAl9h6lSZBeIut9xI/pb2U5eGjlmGxZ.hUEo2.EIbIGi",
+      "role": "patient",
+      "email": "mmouse@disney.com"
+    }
+  ],
+  "appointment": [
+    {
+      "id": "1",
+      "status": "pending",
+      "datetime": "2018-09-27T18:30:49-0600",
+      "purpose": "got some weird growths",
+      "message": "plz help",
+      "patientId": "1",
+      "doctorId": "2"
+    }
+  ],
+  "file": []
+}
