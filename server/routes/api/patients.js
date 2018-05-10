@@ -8,6 +8,7 @@ function getPatients() {
 	.filter({ role: ROLES.PATIENT })
 	.value().map(patient => {
 	    patient["appointments"] = getAppointmentsForPatient(patient.id);
+	    patient["files"] = getFilesForPatient(patient.id);
 	    return patient;
 	});
 }
@@ -18,12 +19,19 @@ function getPatientById(patientId) {
 	    .filter({ role: ROLES.PATIENT })
 	    .find({ id: patientId })
 	    .value(),
-	appointments: getAppointmentsForPatient(patientId)
+	appointments: getAppointmentsForPatient(patientId),
+	files: getFilesForPatient(id)
     }
 }
 
 function getAppointmentsForPatient(id) {
     return db.get(MODELS.APPOINTMENT)
+	.filter({ patientId : id })
+	.value();
+}
+
+function getFilesForPatient(id) {
+    return db.get(MODELS.FILE)
 	.filter({ patientId : id })
 	.value();
 }

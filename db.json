@@ -6,7 +6,13 @@
       "lastName": "Thornton",
       "passwordHash": "$2y$10$XOLk8Ym35g275z47uzm2d.L3OidSlzRI1X7e2lHd1ONxWUGtWZmfi",
       "role": "patient",
-      "email": "billybobthornton@gmail.com"
+      "email": "billybobthornton@gmail.com",
+      "age": "54",
+      "streetAddress": "123 billy bob way",
+      "city": "Gutterville",
+      "state": "CA",
+      "zip:": "90290",
+      "phoneNumber": "1234567890"
     },
     {
       "id": "2",
@@ -14,7 +20,13 @@
       "lastName": "Dean",
       "passwordHash": "$2y$10$14SBOwzUgWhyXkGaPfH9RO1uQ57NJBpmKNJ25.pR.YVGebH8nrFxa",
       "role": "doctor",
-      "email": "jdean@doc.us"
+      "email": "jdean@doc.us",
+      "age": "98",
+      "streetAddress": "2 foo bar blvd",
+      "city": "Motor city",
+      "state": "MI",
+      "zip:": "23425",
+      "phoneNumber": "5552223333"
     },
     {
       "id": "3",
@@ -22,7 +34,13 @@
       "lastName": "Mouse",
       "passwordHash": "$2y$10$wcYTIC5hmBAl9h6lSZBeIut9xI/pb2U5eGjlmGxZ.hUEo2.EIbIGi",
       "role": "patient",
-      "email": "mmouse@disney.com"
+      "email": "mmouse@disney.com",
+      "age": "54",
+      "streetAddress": "55 cash grab lane",
+      "city": "Corporate Monstrosity",
+      "state": "FL",
+      "zip:": "23525",
+      "phoneNumber": "999999999"
     }
   ],
   "appointment": [
@@ -33,6 +51,15 @@
       "purpose": "got some weird growths",
       "message": "plz help",
       "patientId": "1",
+      "doctorId": "2"
+    },
+    {
+      "id": "2",
+      "status": "pending",
+      "datetime": "2018-09-27T18:30:49-0600",
+      "purpose": "i'm an anthropomorphic mouse, and i have existential dread",
+      "message": "huhha!",
+      "patientId": "3",
       "doctorId": "2"
     }
   ],
