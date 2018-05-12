@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
-import "./Login.css"
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import "./Login.css";
+import { login } from '../reducers/auth';
 
-export default class Login extends Component {
+
+class Login extends Component {
     constructor(props) {
 	super(props);
 
@@ -23,7 +27,8 @@ export default class Login extends Component {
     }
 
     handleSubmit = event => {
-	event.preventDefault();
+	const { attemptLogin, classes } = this.props
+	attemptLogin(this.state.email, this.state.password);
     }
 
     render() {
@@ -49,3 +54,16 @@ export default class Login extends Component {
 </div> );
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  attemptLogin: (email, password) => {
+    dispatch(login(email, password));
+  },
+});
+
+Login.propTypes = {
+  attemptLogin: PropTypes.func,
+  classes: PropTypes.object.isRequired,
+};
+
+export default connect(() => ({}), mapDispatchToProps)((Login));

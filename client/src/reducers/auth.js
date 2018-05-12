@@ -9,7 +9,7 @@ export const authenticated = (user) => ({
 export const login = (email, password) =>
   (dispatch) =>
     axios.post(
-      '/api/auth/login',
+      '/api/auth',
       { email, password },
     )
       .then((res) => dispatch(authenticated(res.data)))
