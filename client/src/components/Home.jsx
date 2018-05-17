@@ -10,9 +10,15 @@ const Home = ({ user }) => (
     path="/"
     render={() => {
       if (user && user.role === 'doctor') {
-        return <Redirect to="/dashboard" />;
+          return <Redirect to={{
+	      pathname: "/dashboard",
+	      state: {user: this.state.user}
+	  }}/>;
       } else if (user && user.role === 'patient') {
-        return <Redirect to="/account" />;
+          return <Redirect to={{
+	      pathname: "/account",
+	      state: {user: this.state.user}
+	  }}/>;
       }
       return <Login />;
     }}

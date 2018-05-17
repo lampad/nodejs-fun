@@ -1,0 +1,13 @@
+.PatientHome {
+    margin-top: 15px;
+}
+
+.PatientHome .button-wrapper {
+    margin-top: 30px;
+}
+
+.PatientHome .button {
+    color: white;
+    text-decoration: none;
+    font-size: 12;
+}
