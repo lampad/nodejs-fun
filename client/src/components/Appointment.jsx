@@ -1,36 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Collapse } from 'react-collapse';
 import Card, { CardContent } from 'material-ui/Card';
-import Button from 'material-ui/Button';
+import { Button } from 'react-bootstrap';
 import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
-import { withStyles } from 'material-ui/styles';
+import './Appointment.css'
 
-const styles = {
-  card: {
-    marginBottom: 15,
-    width: 400,
-  },
-  marginBottom: {
-    marginBottom: 15,
-  },
-  content: {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-  header: {
-    fontSize: 13,
-    fontWeight: 600,
-    marginBottom: 10,
-    marginTop: 10,
-  },
-  action: {
-    fontSize: 12,
-  },
-};
-
-class Appointment extends Component {
+export default class Appointment extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,11 +28,11 @@ class Appointment extends Component {
   render() {
     const { appt, classes } = this.props;
     return (
-      <Card key={appt.datetime} className={classes.card} onClick={appt.status === 'pending' ? this.toggleDrawer : () => {}}>
+      <Card key={appt.datetime} className='card' onClick={appt.status === 'pending' ? this.toggleDrawer : () => {}}>
         <CardContent>
-          <div className={classes.content}>
+          <div className='content'>
             <div>
-              <div className={classes.header}>{appt.datetime}</div>
+              <div className='header'>{appt.datetime}</div>
               <div>
                 {appt.purpose}
               </div>
@@ -69,9 +45,9 @@ class Appointment extends Component {
               <Divider />
               <CardContent>
                 <div>
-                  <div className={classes.header}>Message to Patient</div>
+                  <div className='header'>Message to Patient</div>
                   <form>
-                    <div className={classes.marginBottom}>
+                    <div className='margin-bottom'>
                       <TextField
                         name="message"
                         onChange={this.onMessageChange}
@@ -86,7 +62,7 @@ class Appointment extends Component {
                         onClick={this.handleSubmit}
                         variant="raised"
                         color="primary"
-                        className={classes.action}
+                        className='action'
                       >
                       Decline Request
                     </Button>
@@ -100,15 +76,3 @@ class Appointment extends Component {
     );
   }
 }
-
-Appointment.propTypes = {
-  appt: PropTypes.shape({
-    id: PropTypes.number,
-    status: PropTypes.string,
-    purpose: PropTypes.string,
-    datetime: PropTypes.string,
-  }),
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(Appointment);

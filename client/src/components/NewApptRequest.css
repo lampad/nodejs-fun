@@ -1,0 +1,15 @@
+.NewApptRequest .form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;    
+}
+
+.NewApptRequest .form-row {
+    min-width: 200px;
+    margin-bottom: 20px;    
+}
+
+.NewApptRequest .date-label {
+    font-size: 12;
+}
+

@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import { withStyles } from 'material-ui/styles';
@@ -45,10 +44,4 @@ const PatientList = ({ patients, history, classes }) => (
   </Paper>
 );
 
-PatientList.propTypes = {
-  patients: PropTypes.arrayOf(PropTypes.object),
-  history: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
-};
-
-export default withRouter(withStyles(styles)(PatientList));
+export default withRouter((PatientList));

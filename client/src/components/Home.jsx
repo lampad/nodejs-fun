@@ -9,6 +9,8 @@ const Home = ({ user }) => (
   <Route
     path="/"
     render={() => {
+	console.log("hello");
+	console.log(user);
       if (user && user.role === 'doctor') {
           return <Redirect to={{
 	      pathname: "/dashboard",

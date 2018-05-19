@@ -1,13 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import TextField from 'material-ui/TextField';
-import Icon from 'material-ui/Icon';
-import Card from 'material-ui/Card';
+import React, { Component } from 'react';
+import axios from 'axios';
+import AutoSuggest from 'react-bootstrap-autosuggest';
 import './DoctorHome.css'
 
 import PatientList from '../components/PatientList';
 
-import { patients } from '../dummyData';
+function getFullName(item, index) {
+    var fullName = [item.firstName, item.lastName].join(" ");
+    return fullName;
+}
 
 export default class DoctorHome extends Component {
     constructor(props) {
@@ -17,33 +18,31 @@ export default class DoctorHome extends Component {
 	    patients: []
 	}	
     }
-}
 
-const DoctorHome = ({ classes }) => (
-  <div className="container">
-    <h2 className={classes.welcomeMessage}>Welcome back, Dr. McGonagall.</h2>
-    <div className={classes.patients}>
-      { patients ?
+    componentDidMount() {
+	axios.get('/patients')
+	    .then(res => {
+		const patients = res.data;
+		this.setState({ patients });
+	    })
+    }
+
+    render() {
+	return(
+<div className="container">
+    <h2 className="welcome-message">Welcome back, Dr. ${this.props.location.state.user.lastName}.</h2>
+    <div className='patients'>
+        { this.state.patients ?
         <div>
-          <Card className={classes.searchWrapper}>
-            <Icon className={classes.searchIcon}>search</Icon>
-            <TextField
-              name="search"
-              placeholder="Search patients"
-              className={classes.search}
-              inputProps={{ style: { fontSize: 12 } }}
-            />
-          </Card>
-          <PatientList patients={patients} />
+          <AutoSuggest datalist={ this.state.patients.map(getFullName) }
+	  placeholder="Patient Name" />
+          <PatientList patients={ this.state.patients } />
         </div>
-          : <div>{'You don\'t have any patients.'}</div>
+        :
+        <div>{'You don\'t have any patients.'}</div>
         }
     </div>
-  </div>
-);
-
-DoctorHome.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(DoctorHome);
+</div>
+	)
+    }
+}

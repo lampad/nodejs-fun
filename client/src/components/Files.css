@@ -1,0 +1,16 @@
+.Files .container {
+    padding-bottom: 60px;
+}
+
+.Files .file-list {
+    margin-bottom: 20px;
+}
+
+.Files .file-input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+}
