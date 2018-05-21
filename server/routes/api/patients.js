@@ -20,7 +20,7 @@ function getPatientById(patientId) {
 	    .find({ id: patientId })
 	    .value(),
 	appointments: getAppointmentsForPatient(patientId),
-	files: getFilesForPatient(id)
+	files: getFilesForPatient(patientId)
     }
 }
 

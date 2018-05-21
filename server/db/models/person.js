@@ -47,6 +47,10 @@ export default {
 	phoneNumber: {
 	    type: String,
 	    required: false,
+	},
+	dateOfBirth: {
+	    type: Date,
+	    required: false,
 	}
     }
 };

@@ -3,11 +3,10 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import DoctorHome from './containers/DoctorHome';
 import PatientHome from './containers/PatientHome';
-// import Patient from './containers/DoctorPatient';
+import Patient from './containers/DoctorPatient';
 // import Navbar from './components/Navbar';
 import NewApptRequest from './components/NewApptRequest';
 import Login from "./containers/Login";
-    // <Route path="/patient/:id" component={Patient} />
 
 export default () =>
   <Switch>
@@ -16,4 +15,5 @@ export default () =>
     <Route path="/dashboard" component={DoctorHome} />
     <Route path="/account" component={PatientHome} />
     <Route path="/request-appointment" component={NewApptRequest} />
+    <Route path="/patients/:id" component={Patient} />
   </Switch>;

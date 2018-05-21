@@ -26,12 +26,8 @@ class Login extends Component {
 	});
     }
 
-    handleSubmit = event => {
-	const { attemptLogin, classes } = this.props
-	attemptLogin(this.state.email, this.state.password);
-    }
-
     render() {
+	const { attemptLogin, classes } = this.props
 	return (
 <div className="Login">
     <div className="lander">
@@ -47,7 +43,7 @@ class Login extends Component {
             <ControlLabel>Password</ControlLabel>
             <FormControl value={this.state.password} onChange={this.handleChange} type="password" />
         </FormGroup>
-        <Button block bsSize="large" disabled={!this.validateForm()} type="submit">
+		<Button block bsSize="large" disabled={!this.validateForm()} type="submit" onClick={attemptLogin(this.state.email, this.state.password)}>
 		Login
             </Button>
     </form>
@@ -62,8 +58,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Login.propTypes = {
-  attemptLogin: PropTypes.func,
-  classes: PropTypes.object.isRequired,
+  attemptLogin: PropTypes.func
 };
 
 export default connect(() => ({}), mapDispatchToProps)((Login));

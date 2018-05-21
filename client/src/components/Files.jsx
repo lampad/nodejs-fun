@@ -18,8 +18,8 @@ export default class Files extends Component {
   render() {
     const { classes, files } = this.props;
     return (
-<div className={ 'container'}>
-    { files.length ?
+<div className='container'>
+    { files && files.length ?
     <Table striped bordered condensed hover className='file-list'>
         <thead>
             <tr>

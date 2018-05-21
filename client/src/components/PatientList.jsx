@@ -1,47 +1,34 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
-import { withStyles } from 'material-ui/styles';
-
-const styles = {
-  container: {
-    marginTop: 30,
-    padding: '5px 20px 5px 20px',
-  },
-  patientRow: {
-    cursor: 'pointer',
-  },
-  patientInfo: {
-    fontSize: 14,
-    height: 50,
-    display: 'flex',
-    alignItems: 'center',
-  },
-};
+import PropTypes from 'prop-types';
+import './PatientList.css'
 
 const PatientList = ({ patients, history, classes }) => (
-  <Paper className={classes.container}>
-    <h3>Patients</h3>
-    {
-      patients.map((patient) => (
+    <ul>
+    {console.log("patients in patientlist" + patients)}
+      <h3>Patients</h3>
+    {patients.map((patient) => (
         <div
           key={patient.id}
           onClick={() => {
-            history.push(`/patient/${patient.id}`);
+            history.push(`/patients/${patient.id}`);
           }}
           onKeyPress={() => {
-            history.push(`/patient/${patient.id}`);
+            history.push(`/patients/${patient.id}`);
           }}
-          className={classes.patientRow}
+          className='patient-row'
         >
-          <Divider />
-          <div className={classes.patientInfo}>
-            {patient.name}
-          </div>
-        </div>))
-    }
-  </Paper>
+          <div className='patient-info'>
+	    <li>{patient.firstName} {patient.lastName}</li>
+	  </div>
+        </div>))}
+    </ul>
 );
 
+PatientList.propTypes = {
+  patients: PropTypes.arrayOf(PropTypes.object),
+  history: PropTypes.object.isRequired,
+};
+
 export default withRouter((PatientList));
+

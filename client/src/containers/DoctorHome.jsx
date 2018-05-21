@@ -20,17 +20,18 @@ export default class DoctorHome extends Component {
     }
 
     componentDidMount() {
-	axios.get('/patients')
+	axios.get('/api/patients')
 	    .then(res => {
 		const patients = res.data;
 		this.setState({ patients });
-	    })
+	    });
     }
 
     render() {
+	console.log("patients" + this.state.patients)
 	return(
 <div className="container">
-    <h2 className="welcome-message">Welcome back, Dr. ${this.props.location.state.user.lastName}.</h2>
+    <h2 className="welcome-message">Welcome back, Dr. {this.props.location.state.user.lastName}.</h2>
     <div className='patients'>
         { this.state.patients ?
         <div>
