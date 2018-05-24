@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { DateField } from 'react-date-picker';
 import { Button } from 'react-bootstrap';
-import { withStyles } from 'material-ui/styles';
 import './NewApptRequest.css';
 
 export default class NewApptRequest extends Component {
